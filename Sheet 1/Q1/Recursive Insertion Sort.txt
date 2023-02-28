@@ -1,0 +1,27 @@
+function insertion_sort(array, n): // The function will take an array and its size n
+    if n <= 1:                     // If the size = 1. This means that the array contains only one element and by logic it's already sorted. 
+        return array
+    
+    insertion_sort(array, n-1)     // The function recursively calls itself on the first n-1 elements of the array.
+    
+    last = array[n-1]              // assigning the last element of the array to the variable last.
+    j = n-2                        //assigning the element before the last of the array to the variable j.
+    
+    while j >= 0 and array[j] > last:      // A while loop that compares last with each element of the sorted subarray array from right to left.
+        array[j+1] = array[j]              // If an element in the sorted subarray is greater than last. It will be shifted one position to the right.
+        j = j - 1                          
+    
+    array[j+1] = last                     // Once the while loop terminates, the value of last will be inserted in the correct position in the sorted subarray.
+    
+    return array                          
+
+
+/* The recurrence for the recursive function will be as below: T(n) = T(n-1) + 1. The T(n-1) for the recursive function and the 1 for the If condition that will stop the recrusive function, which we will ignore as its value is so small
+The while loop her is responsible for putting the elements in their right order. Its complexity will be calculated --in the worst case-- as: O(n-1) + O (n-2)+ .... + O(1), which we can calculate the sigma from i=1 to n = n(n+1)/2 = O(n^2).
+Finally we have: T(n)= T(n-1)+ O(n^2).
+
+Name: Mohamed Ibrahim Mohamed Eldagla
+ID: 320210177
+Group: 3
+Section: 9
+*/
